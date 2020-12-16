@@ -9,9 +9,8 @@
         <img id="phobos" src="./Assets/phobos.jpg">
         <img id="mars" src="./Assets/mars.jpg">
         <img id="flareasset" src="./Assets/flare.png">
-        <audio id="phobosroute" src="./Assets/phobosroute.mp3"></audio>
+        <audio id="phobosroute" src="./Assets/phobosroute.mp3" autoplay preload></audio>
       </a-assets>
-      <a-sound id=#phobosroute autoplay="true"></a-sound>
       <a-entity geometry="primitive: cylinder; openEnded: true; radius: 200; height: .05" rotation="5 5 5" material="side: double"></a-entity>
       <a-entity camera look-controls wasd-controls="acceleration:20" position="0 1.6 0"></a-entity>
       <a-entity light="type: directional; color: #EEE; intensity: 0.55" position="-1 1 0" animation="property: position; to: 0 0 3; dir: alternate; dur: 10000"></a-entity>
