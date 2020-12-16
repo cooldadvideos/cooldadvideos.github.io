@@ -4,19 +4,22 @@
     <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
   </head>
   <body>
-    <a-scene fog="type: linear; color: #000000; far: 600; near: 1">
+    <a-scene fog="type: linear; color: #000; far: 600; near: 0">
       <a-assets>
         <img id="phobos" src="Assets/phobos.jpg">
         <img id="mars" src="Assets/mars.jpg">
+        <img id="flareasset" src="Assets/flare.png">
         <audio id="phobosroute" src="Assets/phobosroute.mp3"></audio>
       </a-assets>
       <a-sound id=#phobosroute autoplay="true"></a-sound>
       <a-entity light="type: directional; color: #EEE; intensity: 0.75" position="-1 1 0"></a-entity>
+      <a-entity light= "type: directional; color: blue; intensity: 1" position="-5 10 -10"></a-entity>
+      <a-entity img="#flareasset" position="-5 10 -10"></a-entity>
       <a-entity light="type: ambient; color: #EEE; intensity: .12" position="-100 1 0"></a-entity>
-      <a-sphere scale="12 12 12" src="#phobos" roughness=".75" position="-100 0 -100"></a-sphere>
-      <a-sphere scale="150 150 150" src="#mars" roughness=".75" segments-width="72" segments-height="72" position="-100 0 -300"></a-sphere>
+      <a-sphere scale="12 12 12" src="#phobos" roughness=".75" position="-100 0 -150"></a-sphere>
+      <a-sphere scale="200 200 200" src="#mars" roughness=".75" segments-width="72" segments-height="72" position="-100 0 -400"></a-sphere>
       <a-sky color="black"></a-sky>
-      <a-entity star-system= "radius: 450;"></a-entity>
+      <a-entity star-system= "count: 50000; radius: 450;"></a-entity>
     </a-scene>
   </body>
 </html>
