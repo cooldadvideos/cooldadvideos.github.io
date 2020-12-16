@@ -14,7 +14,7 @@
       <a-sound id=#phobosroute autoplay="true"></a-sound>
       <a-entity geometry="primitive: cylinder; openEnded: true; radius: 200; height: .05" rotation="5 5 5" material="side: double"></a-entity>
       <a-entity camera look-controls wasd-controls="acceleration:20" position="0 1.6 0"></a-entity>
-      <a-entity light="type: directional; color: #EEE; intensity: 0.75" position="-1 1 0"></a-entity>
+      <a-entity light="type: directional; color: #EEE; intensity: 0.75" position="-1 1 0" animation="property: position; to: 0 0 20; dir: alternate; dur: 10000"></a-entity>
       <a-entity light="type: ambient; color: #EEE; intensity: .05" position="-100 1 0"></a-entity>
       <a-image src=#flareasset position="-5 10 500" scale="450 450 450"></a-image>
       <a-sphere scale="12 12 12" src="#phobos" roughness=".75" position="-100 0 -150"></a-sphere>
