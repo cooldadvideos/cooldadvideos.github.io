@@ -6,15 +6,15 @@
   <body>
     <a-scene fog="type: linear; color: #000; far: 600; near: 0">
       <a-assets>
-        <img id="phobos" src="Assets/phobos.jpg">
-        <img id="mars" src="Assets/mars.jpg">
-        <img id="flareasset" src="Assets/flare.png">
-        <audio id="phobosroute" src="Assets/phobosroute.mp3"></audio>
+        <img id="phobos" src="./Assets/phobos.jpg">
+        <img id="mars" src="./Assets/mars.jpg">
+        <img id="flareasset" src="./Assets/flare.png">
+        <audio id="phobosroute" src="./Assets/phobosroute.mp3"></audio>
       </a-assets>
       <a-sound id=#phobosroute autoplay="true"></a-sound>
       <a-entity light="type: directional; color: #EEE; intensity: 0.75" position="-1 1 0"></a-entity>
-      <a-image src=#flareasset position="-5 10 80" scale="100 100 100"></a-image>
       <a-entity light="type: ambient; color: #EEE; intensity: .12" position="-100 1 0"></a-entity>
+      <a-image src=#flareasset position="-5 10 200" scale="150 150 150"></a-image>
       <a-sphere scale="12 12 12" src="#phobos" roughness=".75" position="-100 0 -150"></a-sphere>
       <a-sphere scale="200 200 200" src="#mars" roughness=".75" segments-width="72" segments-height="72" position="-100 0 -400"></a-sphere>
       <a-sky color="black"></a-sky>
