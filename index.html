@@ -4,7 +4,7 @@
     <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
   </head>
   <body>
-    <a-scene fog="type: linear; color: #000; far: 600; near: 0">
+    <a-scene fog="type: linear; color: #000; far: 700; near: 0">
       <a-assets>
         <img id="phobos" src="./Assets/phobos.jpg">
         <img id="mars" src="./Assets/mars.jpg">
@@ -12,6 +12,7 @@
         <audio id="phobosroute" src="./Assets/phobosroute.mp3"></audio>
       </a-assets>
       <a-sound id=#phobosroute autoplay="true"></a-sound>
+      <a-entity geometry="primitive: cylinder; openEnded: true; radius: 200; height: .05" rotation="5 5 5" material="side: double"></a-entity>
       <a-entity camera look-controls wasd-controls="acceleration:20" position="0 1.6 0"></a-entity>
       <a-entity light="type: directional; color: #EEE; intensity: 0.75" position="-1 1 0"></a-entity>
       <a-entity light="type: ambient; color: #EEE; intensity: .05" position="-100 1 0"></a-entity>
