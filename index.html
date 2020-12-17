@@ -1,8 +1,9 @@
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
-    <style>
+      <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+      <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
+      
+      <style>
       .mainUI
       {
         border: 0px solid pink; 
@@ -90,8 +91,6 @@
         }
       });
       </script>
-  </head>
-  <body>
     <a-scene fog="type: linear; color: #000; far: 700; near: 0">
       <a-assets>
         <img id="phobos" src="./Assets/phobos.jpg">
@@ -101,7 +100,7 @@
         <img id="caustic" src="./Assets/causticsolo.png">
         <audio id="phobosroute" src="./Assets/phobosroute.mp3"></audio>
       </a-assets>
-      <a-sound src=#phobosroute autoplay="true" refdistance="20" rollofffactor="0"></a-sound>
+      <a-entity id="ambientSound" sound="src: #phobosroute; loop: true;"></a-entity>
       <a-entity camera look-controls wasd-controls="acceleration:20" position="0 1.6 0"></a-entity>
       <a-entity light="type: directional; color: #EEE; intensity: 0.55" position="-1 1 0"></a-entity>
       <a-entity light="type: ambient; color: #EEE; intensity: .05" position="-100 1 0"></a-entity>
