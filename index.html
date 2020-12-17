@@ -5,7 +5,51 @@
       <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
       <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
       <link rel="stylesheet" href="./Scripts/styles.css">
-  </head>
+     
+     <script>
+      
+        // runs when user clicks button
+         AFRAME.registerComponent('start', {
+    
+      init: function()
+      {
+        // block pointer events until buttonEnter is clicked
+        let uiDiv = document.getElementById("uiDiv");
+        uiDiv.style["pointer-events"] = "auto";
+    
+        // set up background blocker
+        uiDiv.style["background-color"] = "rgba(0, 0, 0, 0.75)";
+    
+        // indicate clickable with hand cursor (desktop)
+        let buttonEnter = document.getElementById("buttonEnter");
+        buttonEnter.style.cursor = "pointer";
+    
+        // fade-in functionality
+        let fadeIn = function()
+        {
+          // allow point events again
+          uiDiv.style["pointer-events"] = "none";
+    
+          // sounds can only be triggered after a mouse interaction
+          let soundPlayer = document.querySelector("#ambientSound");
+          soundPlayer.components.sound.playSound();
+    
+          // remove startButton
+          buttonEnter.parentNode.remove(buttonEnter);
+    
+          // fade out uiDiv background
+          uiDiv.style["background-color"] = "rgba(0, 0, 0, 0.0)";
+            uiDiv.style["transition"] = "background-color 1000ms linear";
+        }
+    
+        // activate for desktop/touchscreen
+        buttonEnter.addEventListener('touchstart', fadeIn);
+        buttonEnter.addEventListener('mousedown',  fadeIn);
+      }
+    });
+    </script>
+  
+    </head>
       
 <body>
       
@@ -18,57 +62,17 @@
         </div>
       </div>
       
-    <script>
-      
-          // runs when user clicks button
-           AFRAME.registerComponent('start', {
-      
-        init: function()
-        {
-          // block pointer events until buttonEnter is clicked
-          let uiDiv = document.getElementById("uiDiv");
-          uiDiv.style["pointer-events"] = "auto";
-      
-          // set up background blocker
-          uiDiv.style["background-color"] = "rgba(0, 0, 0, 0.75)";
-      
-          // indicate clickable with hand cursor (desktop)
-          let buttonEnter = document.getElementById("buttonEnter");
-          buttonEnter.style.cursor = "pointer";
-      
-          // fade-in functionality
-          let fadeIn = function()
-          {
-            // allow point events again
-            uiDiv.style["pointer-events"] = "none";
-      
-            // sounds can only be triggered after a mouse interaction
-            let soundPlayer = document.querySelector("#ambientSound");
-            soundPlayer.components.sound.playSound();
-      
-            // remove startButton
-            buttonEnter.parentNode.remove(buttonEnter);
-      
-            // fade out uiDiv background
-            uiDiv.style["background-color"] = "rgba(0, 0, 0, 0.0)";
-              uiDiv.style["transition"] = "background-color 1000ms linear";
-          }
-      
-          // activate for desktop/touchscreen
-          buttonEnter.addEventListener('touchstart', fadeIn);
-          buttonEnter.addEventListener('mousedown',  fadeIn);
-        }
-      });
-      </script>
 
-    <a-scene fog="type: linear; color: #000; far: 700; near: 0">
+
+    <a-scene fog="type: linear; color: #000; far: 700; near: 0" start>
+      
       <a-assets>
         <img id="phobos" src="./Assets/phobos.jpg">
         <img id="mars" src="./Assets/mars.jpg">
         <img id="flareasset" src="./Assets/flare.png">
         <img id="iris" src="./Assets/irissolo.png">
         <img id="caustic" src="./Assets/causticsolo.png">
-        <audio id="phobosroute" src="./Assets/phobosroute.mp3"></audio>
+        <audio id="phobosroute" src="./Assets/phobosroute.mp3" preload="auto"></audio>
       </a-assets>
 
       <a-entity id="ambientSound" sound="src: #phobosroute; loop: true;"></a-entity>
