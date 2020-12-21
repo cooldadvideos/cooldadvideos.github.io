@@ -69,7 +69,7 @@
       
 
 
-    <a-scene fog="type: linear; color: #000; far: 700; near: 0" start>
+    <a-scene fog="type: exponential; color: #000; far: 700; near: 200" start>
       
       <a-assets>
         <img id="phobos" src="./Assets/phobos.jpg">
@@ -88,14 +88,14 @@
       <a-entity light="type: directional; color: #EEE; intensity: 0.55" position="-1 1 0"></a-entity>
       <a-entity light="type: ambient; color: #EEE; intensity: .05" position="-100 1 0"></a-entity>
      
-      <a-box animation="property: scale; from: 2 2 10; to: .5 .5 2.5; delay: 15000; dur: 15000; property: position; from: -5 10 400; to: -100 0 -250; loop: true; dur: 30000"></a-box>
+      <a-box animation="property: scale; from: 2 2 10; to: .5 .5 2.5; delay: 15000; dur: 15000;" animation="property: position; from: -5 10 400; to: -100 0 -250; loop: true; dur: 30000"></a-box>
       <!--Flare-->
       <a-image src=#flareasset material="fog: false" position="-5 10 400" scale="650 650 650"></a-image>
       <a-image src=#iris material="fog: false" position="-5 25 350" scale="650 650 650"></a-image>
       <a-image src=#caustic position="-5 50 110" scale="300 300 300"></a-image>
       <!--Planets-->
       <a-sphere scale="12 12 12" src="#phobos" roughness=".75" segments-width="72" segments-height="72" position="-100 0 -150"></a-sphere>
-      <a-sphere scale="500 500 500" src="#mars" roughness=".75" segments-width="72" segments-height="72" position="-100 0 -800"></a-sphere>
+      <a-sphere scale="500 500 500" src="#mars" roughness=".65" segments-width="72" segments-height="72" position="-100 0 -800"></a-sphere>
       <a-sky color="black"></a-sky>
       <a-entity star-system= "count: 50000; radius: 450;"></a-entity>
 
