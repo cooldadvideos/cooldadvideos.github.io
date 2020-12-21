@@ -63,13 +63,13 @@
       </div>
 
       <!-- noise overlay -->
-      <div>
+      <!--div>
         <img class=overlay src="./Assets/noisetest.png" width=100% height=100%>
-      </div>
+      </div-->
       
 
 
-    <a-scene fog="type: exponential; color: #000; far: 700; near: 200" start>
+    <a-scene fog="type: linear; color: #000; far: 470; near: 100" start>
       
       <a-assets>
         <img id="phobos" src="./Assets/phobos.jpg">
@@ -77,27 +77,30 @@
         <img id="flareasset" src="./Assets/flare.png">
         <img id="iris" src="./Assets/irissolo.png">
         <img id="caustic" src="./Assets/causticsolo.png">
+        <img id="sky" src="./Assets/spacesky.jpg">
         <a-asset-item id="satellite" src="./Assets/satellite.obj"></a-asset-item>
         <a-asset-item id="satellitemtl" src="./Assets/satellite.mtl"></a-asset-item>
+        <a-asset-item id="rock" src="./Assets/rock.obj"></a-asset-item>
         <audio id="phobosroute" src="./Assets/phobosroute.mp3" preload="auto"></audio>
       </a-assets>
 
       <a-entity id="ambientSound" sound="src: #phobosroute; loop: true; positional: false;"></a-entity>
       <a-entity obj-model="obj: #satellite" color="black" position="0 0 -100" scale= ".5 .5 .5" rotation="45 45 45"></a-entity>
-      <a-entity camera look-controls wasd-controls="acceleration:20" position="0 1.6 0"></a-entity>
-      <a-entity light="type: directional; color: #EEE; intensity: 0.55" position="-1 1 0"></a-entity>
+
+      <a-entity camera look-controls wasd-controls="acceleration:10" position="0 1.6 50"></a-entity>
+      <a-entity light="type: directional; color: #EEE; intensity: 1" position="-5 4 0" angle="45"></a-entity>
       <a-entity light="type: ambient; color: #EEE; intensity: .05" position="-100 1 0"></a-entity>
      
-      <a-box animation="property: scale; from: 2 2 10; to: .5 .5 2.5; delay: 15000; dur: 15000;" animation="property: position; from: -5 10 400; to: -100 0 -250; loop: true; dur: 30000"></a-box>
+
       <!--Flare-->
       <a-image src=#flareasset material="fog: false" position="-5 10 400" scale="650 650 650"></a-image>
       <a-image src=#iris material="fog: false" position="-5 25 350" scale="650 650 650"></a-image>
       <a-image src=#caustic position="-5 50 110" scale="300 300 300"></a-image>
       <!--Planets-->
-      <a-sphere scale="12 12 12" src="#phobos" roughness=".75" segments-width="72" segments-height="72" position="-100 0 -150"></a-sphere>
-      <a-sphere scale="500 500 500" src="#mars" roughness=".65" segments-width="72" segments-height="72" position="-100 0 -800"></a-sphere>
-      <a-sky color="black"></a-sky>
-      <a-entity star-system= "count: 50000; radius: 450;"></a-entity>
+      <a-entity obj-model="obj: #rock" scale=".25 .25 .55" src="#phobos" position="-100 0 -150"></a-entity>
+      <a-sphere scale="500 500 500" rotation="-45 -25 -45" src="#mars" roughness=".75" segments-width="72" segments-height="72" position="-100 0 -650"></a-sphere>
+      <a-sky src="#sky"></a-sky>
+      <a-entity star-system= "count: 50000; radius: 450;" material="fog: false"></a-entity>
 
     </a-scene>
 
