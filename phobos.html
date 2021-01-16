@@ -62,11 +62,6 @@
         </div>
       </div>
 
-      <!-- noise overlay -->
-      <!--div>
-        <img class=overlay src="./Assets/noisetest.png" width=100% height=100%>
-      </div-->
-      
     <a-scene fog="type: exponential; color: #000; density: .0035" start>
       
       <a-assets>
@@ -89,7 +84,7 @@
 
       <!--Camera-->
       <a-entity id="rig" camera look-controls wasd-controls="acceleration:10" position="0 1.6 50"> 
-        <a-image src="#helmet" rotation="0 -180 0" position="0 0 -2" scale="8 5 5"></a-image>
+        <a-image src="#helmet" transparent="true"  material="alphaTest: 0.5" rotation="0 0 0" position="0 0 -2" scale="7 4 5"></a-image>
       </a-entity>
       
       <!--Lights-->
