@@ -75,7 +75,7 @@
         <a-asset-item id="satellite" src="./Assets/satellite.obj"></a-asset-item>
         <a-asset-item id="truck" src="./Assets/freight.glb"></a-asset-item>
         <a-asset-item id="satellitemtl" src="./Assets/satellite.mtl"></a-asset-item>
-        <a-asset-item id="rock" src="./Assets/rock.obj"></a-asset-item>
+        <a-asset-item id="phobosrock" src="./Assets/phobos.glb"></a-asset-item>
         <audio id="phobosroute" src="./Assets/phobosroute.mp3" preload="auto"></audio>
       </a-assets>
 
@@ -83,13 +83,13 @@
       <a-entity id= "ambientSound" sound="src: #phobosroute; loop: true; positional: false;"></a-entity>
 
       <!--Camera-->
-      <a-entity id="rig" camera look-controls wasd-controls="acceleration:10" position="0 1.6 50"> 
+      <a-entity id="rig" camera look-controls wasd-controls="acceleration:4" position="0 1.6 50"> 
         <a-image src="#helmet" transparent="true"  material="alphaTest: 0.5" rotation="0 0 0" position="0 0 -2" scale="7 4 5"></a-image>
       </a-entity>
       
       <!--Lights-->
       <a-entity light="type: directional; color: #EEE; intensity: 2" position="-5 4 0" angle="45"></a-entity>
-      <a-entity light="type: ambient; color: #EEE; intensity: .05" position="-100 1 0"></a-entity>
+      <a-entity light="type: ambient; color: #EEE; intensity: .06" position="-100 1 0"></a-entity>
      
       <!--Flare-->
       <a-image src=#flareasset material="fog: false" position="-5 10 400" scale="650 650 650"></a-image>
@@ -97,7 +97,7 @@
       <a-image src=#caustic position="-5 50 110" scale="300 300 300"></a-image>
 
       <!--Planets-->
-      <a-entity obj-model="obj: #rock" scale=".25 .25 .55" src="#phobos" position="-100 0 -150"></a-entity>
+      <a-entity gltf-model="#phobosrock" scale="25 25 25" roughness=".75" src="#phobos" position="-100 0 -150"></a-entity>
       <a-sphere scale="500 500 500" rotation="-45 -25 -45" src="#mars" roughness=".75" segments-width="72" segments-height="72" position="-100 0 -650"></a-sphere>
       <a-sky src="#sky"></a-sky>
       
