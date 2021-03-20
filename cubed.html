@@ -1,0 +1,97 @@
+<html>
+  <head>
+      <title>Cubed</title>
+      <meta name="description" content="A-Frame Examples">  
+      <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+      <link rel="stylesheet" href="./Scripts/styles.css">
+     
+     <script>
+      
+        // runs when user clicks button
+         AFRAME.registerComponent('start', {
+    
+      init: function()
+      {
+        // block pointer events until buttonEnter is clicked
+        let uiDiv = document.getElementById("uiDiv");
+        uiDiv.style["pointer-events"] = "auto";
+    
+        // set up background blocker
+        uiDiv.style["background-color"] = "rgba(0, 0, 0, 0.75)";
+    
+        // indicate clickable with hand cursor (desktop)
+        let buttonEnter = document.getElementById("buttonEnter");
+        buttonEnter.style.cursor = "pointer";
+    
+        // fade-in functionality
+        let fadeIn = function()
+        {
+          // allow point events again
+          uiDiv.style["pointer-events"] = "none";
+    
+          // sounds can only be triggered after a mouse interaction
+          let soundPlayer = document.querySelector("#ambientSound");
+          soundPlayer.components.sound.playSound();
+    
+          // remove startButton
+          buttonEnter.parentNode.remove(buttonEnter);
+    
+          // fade out uiDiv background
+          uiDiv.style["background-color"] = "rgba(0, 0, 0, 0.0)";
+            uiDiv.style["transition"] = "background-color 1000ms linear";
+        }
+    
+        // activate for desktop/touchscreen
+        buttonEnter.addEventListener('touchstart', fadeIn);
+        buttonEnter.addEventListener('mousedown',  fadeIn);
+      }
+    });
+    </script>
+  
+    </head>
+      
+<body>
+      
+      <div class="mainUI" id="uiDiv" oncontextmenu="return false;">
+        <!-- centered -->
+        <div class="regionUI">
+          <div class="buttonUI">
+            <img src="./Assets/enter.png" id="buttonEnter" />
+          </div>
+        </div>
+      </div>
+
+    <a-scene fog="type: exponential; color: #000; density: .0035" start>
+      
+      <a-assets>
+       
+      </a-assets>
+
+      <!--Vibes-->
+      <a-entity id= "ambientSound" sound="src: #phobosroute; loop: true; positional: false;"></a-entity>
+
+      <!--Camera-->
+      <a-entity id="rig" camera look-controls wasd-controls="acceleration:4" position="0 1.6 50"> 
+        <a-image src="#helmet" transparent="true"  material="alphaTest: 0.5" rotation="0 0 0" position="0 0 -2" scale="7 4 5"></a-image>
+      </a-entity>
+      
+      <!--Lights-->
+    
+     
+      <!--Flare-->
+      
+
+      <!--Planets-->
+  
+      
+      <!--Truck-->
+
+
+      <!--Scenic-->
+      
+
+    </a-scene>
+
+
+</body>
+</html>
