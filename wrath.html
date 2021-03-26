@@ -63,19 +63,10 @@
         </div>
       </div>
 
-    <a-scene loading-screen="dotsColor: white; backgroundColor: black" fog="type: linear; color: #000; density: .0035" start="50">
+    <a-scene loading-screen="dotsColor: white; backgroundColor: black" fog="type: linear; far: 450; near: 200; color: #fff; density: .0035" start>
       
       <a-assets>
-        <img id="phobos" src="./Assets/phobos.jpg">
-        <img id="mars" src="./Assets/mars.jpg">
-        <img id="flareasset" src="./Assets/flare.png">
-        <img id="iris" src="./Assets/irissolo.png">
-        <img id="caustic" src="./Assets/causticsolo.png">
-        <img id="sky" src="./Assets/spacesky.jpg">
-        <img id="helmet" src="./Assets/Helmet.png">
-        <a-asset-item id="satellite" src="./Assets/satellite.obj"></a-asset-item>
-        <a-asset-item id="truck" src="./Assets/freight.glb"></a-asset-item>
-        <a-asset-item id="satellitemtl" src="./Assets/satellite.mtl"></a-asset-item>
+        <a-asset-item id="deep" src="./Assets/deepsphere.glb"></a-asset-item>
         <a-asset-item id="wrathsphere" src="./Assets/wrathsphere3.glb"></a-asset-item>
         <audio id="kindwrath" src="./Assets/kindwrath.mp3" preload="auto"></audio>
       </a-assets>
@@ -84,18 +75,51 @@
       <a-entity id= "ambientSound" sound="src: #kindwrath; loop: true; positional: false;"></a-entity>
 
       <!--Camera-->
-      <a-entity id="rig" camera look-controls wasd-controls="acceleration:8" position="0 1.6 50"></a-entity>
+      <a-entity id="rig" camera look-controls wasd-controls="acceleration:10" position="0 1.6 50"></a-entity>
       
       <!--Lights-->
       <a-entity light="type: directional; color: #EEE; intensity: 2" position="0 4 0" angle="45"></a-entity>
-      <a-entity light="type: ambient; color: #EEE; intensity: .08" position="-100 1 0"></a-entity>
+      <a-entity light="type: ambient; color: #EEE; intensity: 1" position="-100 1 0"></a-entity>
      
  
       <!--Actors-->
-      <a-entity gltf-model="#wrathsphere" animation-mixer scale="30 30 30" roughness=".75" position="0 -50 -40"></a-entity>
-      <a-sphere color="gray" scale="200 200 200" roughness=".75" 
-      animation="property: opacity; dur: 4000; from: 1; to: 0; direction: alternate; loop: true;" 
-      animation__2="property: position; dur:4000; from: -15 0 -200; to: 20 0 -300; direction: reverse; loop: true;" ></a-sphere>
+      <a-entity gltf-model="#wrathsphere" animation-mixer scale="30 30 30" roughness="1" position="0 -50 -50"></a-entity>
+      
+      <!--Spheres-->
+      <a-entity position="0 0 0" animation="property: rotation; dur: 30000; to: 360; loop: true;">  
+        <a-sphere opacity=".25" segments-height= "48" segments-width="48" color="gray" scale="300 300 300" roughness="1" position="20 0 -600"></a-sphere>
+      </a-entity>
+
+      <a-entity rotation= "10 60 0">
+          <a-entity position="0 0 0" animation="property: rotation; dur: 50000; from: 0; to: 360; loop: true;">
+          <a-sphere opacity="1" segments-height= "48" segments-width="48" color="gray" scale="300 300 300" roughness=".75" position="20 -250 -500"></a-sphere>
+      </a-entity></a-entity>
+
+      <a-entity rotation= "0 280 0">
+          <a-entity position="0 0 0" animation="property: rotation; dur: 40000; from: 0; to: 360; loop: true;">
+          <a-sphere opacity="1" segments-height= "48" segments-width="48" color="gray" scale="400 400 400" roughness=".75" position="20 -250 -600"></a-sphere>
+      </a-entity></a-entity>
+
+      <a-entity rotation= "0 280 0">
+        <a-entity position="0 0 0" animation="property: rotation; dur: 55000; from: 0; to: 360; loop: true;">
+        <a-sphere opacity="1" segments-height= "48" segments-width="48" color="gray" scale="200 200 200" roughness=".75" position="20 -250 -650"></a-sphere>
+      </a-entity></a-entity>
+
+      <a-entity rotation= "180 280 0">
+        <a-entity position="0 0 0" animation="property: rotation; dur: 40000; from: 0; to: 360; loop: true;">
+        <a-sphere opacity="1" segments-height= "48" segments-width="48" color="gray" scale="200 200 200" roughness=".75" position="20 -250 -450"></a-sphere>
+     </a-entity></a-entity>
+
+     <a-entity rotation= "0 280 90">
+      <a-entity position="0 0 0" animation="property: rotation; dur: 40000; from: 0; to: 360; loop: true;">
+      <a-sphere opacity="1" segments-height= "48" segments-width="48" color="gray" scale="200 200 200" roughness=".75" position="20 -250 -400"></a-sphere>
+     </a-entity></a-entity>
+
+     <a-entity rotation= "180 280 90">
+      <a-entity position="0 0 0" animation="property: rotation; dur: 40000; from: 0; to: 360; loop: true;">
+      <a-sphere opacity="1" segments-height= "48" segments-width="48" color="gray" scale="200 200 200" roughness=".75" position="20 -450 -350"></a-sphere>
+     </a-entity></a-entity>
+
       <a-sky color="white"></a-sky>
       
 
