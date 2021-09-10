@@ -62,7 +62,7 @@
         </div>
       </div>
 
-    <a-scene fog="type: exponential; color: #000; density: .0035" start>
+    <a-scene fog="type: exponential; color: #000; density: .0015" start>
       
       <a-assets>
         <img id="phobos" src="./Assets/phobos.jpg">
@@ -72,9 +72,9 @@
         <img id="caustic" src="./Assets/causticsolo.png">
         <img id="sky" src="./Assets/spacesky.jpg">
         <img id="helmet" src="./Assets/Helmet.png">
-        <a-asset-item id="satellite" src="./Assets/satellite.obj"></a-asset-item>
+        <a-asset-item id="satellite" src="./Assets/satellite.glb"></a-asset-item>
+        <a-asset-item id="wrench" src="./Assets/wrench.glb"></a-asset-item>
         <a-asset-item id="truck" src="./Assets/freight.glb"></a-asset-item>
-        <a-asset-item id="satellitemtl" src="./Assets/satellite.mtl"></a-asset-item>
         <a-asset-item id="phobosrock" src="./Assets/phobos.glb"></a-asset-item>
         <audio id="phobosroute" src="./Assets/phobosroute.mp3" preload="auto"></audio>
       </a-assets>
@@ -83,13 +83,14 @@
       <a-entity id= "ambientSound" sound="src: #phobosroute; loop: true; positional: false;"></a-entity>
 
       <!--Camera-->
-      <a-entity id="rig" camera look-controls wasd-controls="acceleration:4" position="0 1.6 50"> 
+      <a-entity id="rig" camera look-controls wasd-controls="acceleration:1" position="0 1.6 43"> 
         <a-image src="#helmet" transparent="true"  material="alphaTest: 0.5" rotation="0 0 0" position="0 0 -2" scale="7 4 5"></a-image>
       </a-entity>
       
       <!--Lights-->
-      <a-entity light="type: directional; color: #EEE; intensity: 2" position="-5 4 0" angle="45"></a-entity>
-      <a-entity light="type: ambient; color: #EEE; intensity: .06" position="-100 1 0"></a-entity>
+      <a-entity light="type: spot; color: #EEE; intensity: 1.8; angle: 47.57; decay: 11.6; penumbra: 1" position="-336.77955 400.19306 -81.30237" angle="45" rotation="-51.1 -67.91 -95.7"></a-entity>
+      <a-entity light="type: spot; color: #EEE; intensity: 1; angle: 34.21; decay: 11.6; penumbra: 1" position="8.33146 68.78277 14.48122" angle="45" rotation="-73.3 -74.41 -96.5"></a-entity>
+      <a-entity light="type: ambient; color: #EEE; intensity: .07" position="-100 1 0"></a-entity>
      
       <!--Flare-->
       <a-image src=#flareasset material="fog: false" position="-5 10 400" scale="650 650 650"></a-image>
@@ -97,18 +98,27 @@
       <a-image src=#caustic position="-5 50 110" scale="300 300 300"></a-image>
 
       <!--Planets-->
-      <a-entity gltf-model="#phobosrock" scale="25 25 25" roughness=".75" src="#phobos" position="-100 0 -150"></a-entity>
-      <a-sphere scale="500 500 500" rotation="-45 -25 -45" src="#mars" roughness=".75" segments-width="72" segments-height="72" position="-100 0 -650"></a-sphere>
+      <a-sphere scale="30 30 30" roughness=".75" src="#phobos" position="-325 91.11629 -67.7" rotation="45 45 45" material="" geometry=""></a-sphere>
+      <a-sphere scale="400 400 400" rotation="-45 -25 -45" src="#mars" roughness=".75" segments-width="72" segments-height="72" position="-175 0 -500"></a-sphere>
       <a-sky src="#sky"></a-sky>
       
       <!--Truck-->
-      <a-entity gltf-model="#truck" position="0 0 0" scale= ".015 .015 .015" rotation="0 0 0" ></a-entity>
+      <a-entity id="truck"
+      animation="property: position; dur: 40000; from: -350 25 500; to: 300 -70 -500; easing: easeInOutQuad; loop:true;"
+         animation__2="property: scale; dur: 40000; from: 10 10 10; to: 2 2 2; loop:true;" >
+      <a-entity gltf-model="./Assets/freight.glb"
+      
+         rotation="0 -212 21.4"></a-entity>
+         <a-circle material="" geometry="" rotation="0 -40.52 0" scale="0.18 0.18 0.18" position="-0.63016 0.44196 2.21898"></a-circle>
+         <a-circle material="" geometry="" rotation="0 -40.52 0" scale="0.18 0.18 0.18" position="-1.31328 0.80896 1.79021"></a-circle>
+        </a-entity>
 
       <!--Scenic-->
-      <a-entity obj-model="obj: #satellite" color="#000" position="0 0 -20" scale= ".5 .5 .5" rotation="45 45 45">
-        <a-sphere color="green" position="4 0 0" scale=".25 .25 .25" animation="property: opacity; dur: 2000; from: 1; to: 0; loop: true; direction: alternate;"></a-sphere>
-        <a-sphere color="yellow" position="3.75 0 0" scale=".15 .15 .15" animation="property: opacity; dur: 3000; from: 1; to: 0; loop: true; direction: alternate;"></a-sphere>
+      <a-entity gltf-model="#satellite" position="-1 0 54.51955" scale="2 2 2" animation="property: rotation; dur: 50000; from: 45 45 45; to: 45 45 0; loop: true; dir: alternate">
+        <a-sphere color="green" position="3.95 0 0" scale="0.1 0.05 0.05" animation__2="property: opacity; dur: 2000; from: 1; to: 0; loop: true; dir: alternate"></a-sphere>
+        <a-sphere color="yellow" position="3.95 0 0" scale="0.1 0.05 0.05" animation__3="property: opacity; dur: 4000; from: 1; to: 0; loop: true; dir: alternate"></a-sphere>
       </a-entity>
+      <a-entity gltf-model="#wrench" scale=".4 .4 .4" position="-.5 1.4 49" animation="property: rotation; dur: 10000; from: 0 55 359; to: 0 55 0; loop: true; easing: linear;"></a-entity>
       <a-entity star-system= "count: 50000; radius: 450;" material="fog: false"></a-entity>
 
     </a-scene>
