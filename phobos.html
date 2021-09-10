@@ -77,6 +77,8 @@
         <a-asset-item id="truck" src="./Assets/freight.glb"></a-asset-item>
         <a-asset-item id="phobosrock" src="./Assets/phobos.glb"></a-asset-item>
         <audio id="phobosroute" src="./Assets/phobosroute.mp3" preload="auto"></audio>
+        <audio id="ship" src="./Assets/ship.mp3" preload="auto"></audio>
+      </a-assets>
       </a-assets>
 
       <!--Vibes-->
@@ -104,13 +106,13 @@
       
       <!--Truck-->
       <a-entity id="truck"
-      animation="property: position; dur: 40000; from: -350 25 500; to: 300 -70 -500; easing: easeInOutQuad; loop:true;"
-         animation__2="property: scale; dur: 40000; from: 10 10 10; to: 2 2 2; loop:true;" >
+          animation="property: position; dur: 40000; from: -350 25 500; to: 300 -70 -500; easing: easeInOutQuad; loop:true;"
+          animation__2="property: scale; dur: 40000; from: 10 10 10; to: 2 2 2; loop:true;">
       <a-entity gltf-model="./Assets/freight.glb"
-      
          rotation="0 -212 21.4"></a-entity>
          <a-circle material="" geometry="" rotation="0 -40.52 0" scale="0.18 0.18 0.18" position="-0.63016 0.44196 2.21898"></a-circle>
          <a-circle material="" geometry="" rotation="0 -40.52 0" scale="0.18 0.18 0.18" position="-1.31328 0.80896 1.79021"></a-circle>
+         
         </a-entity>
 
       <!--Scenic-->
